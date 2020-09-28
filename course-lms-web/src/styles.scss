@@ -1,1 +1,19 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'styles/_mat-theme.scss';
+
+@import 'styles/components/_form-field.scss';
+@import 'styles/components/_mat-card.scss';
+@import 'styles/components/_mat-table.scss';
+
+html,
+body {
+  height: 100%;
+  --main-bg-color: #f8f9fb;
+}
+body {
+  margin: 0;
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}

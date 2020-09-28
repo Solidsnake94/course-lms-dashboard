@@ -1,0 +1,10 @@
+.mat-table {
+  tr.mat-row,
+  tr.mat-footer-row {
+    height: 64px;
+  }
+
+  tr[mat-header-row] {
+    background: var(--main-bg-color);
+  }
+}

@@ -1,0 +1,50 @@
+<div class="p-4 h-full" *ngIf="courseDetails$ | async as details;">
+  <div class="pt-2 pb-8">
+    <span class="text-2xl font-bold text-blue-900">Course</span>
+    <span class="text-2xl font-bold text-teal-500"> {{ details.name }}</span>
+  </div>
+
+  <mat-card>
+    <div class="flex justify-between p-6 space-x-6">
+      <div class="flex flex-col items-start w-full">
+        <div class="flex flex-col w-full">
+          <label class="font-bold text-blue-900">Course name</label>
+
+          <mat-form-field floatLabel="never" appearance="none">
+            <input matInput  readonly [value]="details.name" />
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col w-full">
+          <label class="font-bold text-blue-900">Course card image</label>
+          <img [src]="details.images[0]">
+        </div>
+      </div>
+      <div class="flex flex-col items-start w-full">
+        <div class="flex flex-col w-full">
+          <label class="font-bold text-blue-900">Course Status</label>
+
+          <mat-form-field floatLabel="never" appearance="none" readonly [ngClass]="readonly ? 'pointer-events-none': ''">
+            <mat-select  [value]="details.status" >
+              <mat-option [value]="CourseStatus.DRAFT">Draft</mat-option>
+              <mat-option [value]="CourseStatus.PUBLISHED">Published</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="flex flex-col w-full">
+          <label class="font-bold text-blue-900">Instructor</label>
+          <mat-form-field floatLabel="never" appearance="none">
+            <mat-chip-list #chipList [selectable]="false" >
+              <mat-chip *ngFor="let instructor of details.instructors">
+                <mat-icon matChipRemove >cancel</mat-icon>
+                {{instructor.name}}
+              </mat-chip>
+              <input [style.display]="readonly ? 'none' : 'block'" [matChipInputFor]="chipList">
+            </mat-chip-list>
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+  </mat-card>
+</div>

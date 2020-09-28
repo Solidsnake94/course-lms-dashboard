@@ -7,7 +7,7 @@ export class CoursesService {
       {
         id: 1,
         name: 'Fundamentals of Credit',
-        imageUrl: 'https://picsum.photos/100/100',
+        imageUrl: 'https://picsum.photos/id/1050/100/50',
         status: 'DRAFT',
         instructors: [
           {
@@ -24,7 +24,7 @@ export class CoursesService {
         id: 2,
         name: 'Accounting Fundamentals',
         status: 'PUBLISHED',
-        imageUrl: 'https://picsum.photos/100/100',
+        imageUrl: 'https://picsum.photos/id/1051/100/50',
         instructors: [
           {
             name: 'Roli Jain',
@@ -39,6 +39,7 @@ export class CoursesService {
     return {
       id: 1,
       name: 'Fundamentals of Credit',
+      status: 'DRAFT',
       images: [
         'https://picsum.photos/300/300',
         'https://picsum.photos/300/300',

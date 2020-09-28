@@ -1,0 +1,30 @@
+<div class="p-4">
+  <div class="pt-2 pb-8">
+    <span class="text-2xl font-bold text-blue-900">Courses</span>
+  </div>
+
+  <mat-card>
+    <div class="flex justify-between px-6 py-6">
+      <div>
+        <label class="text-gray-600 text-xl">Filter by </label>
+        <mat-form-field floatLabel="never" appearance="none">
+          <mat-select [formControl]="filterTypeControl">
+            <mat-option [value]="CourseFilterType.STATUS">Course status</mat-option>
+            <mat-option [value]="CourseFilterType.NAME">Course name</mat-option>
+            <mat-option [value]="CourseFilterType.INSTRUCTOR">Course instructor</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-button (click)="clearFilters()">Clear</button>
+      </div>
+
+      <div>
+        <mat-form-field floatLabel="never" appearance="none" >
+          <mat-icon matPrefix>search</mat-icon>
+          <input matInput placeholder="Search courses"  [formControl]="filterSearchControl" />
+        </mat-form-field>
+      </div>
+    </div>
+
+    <app-course-list [courses]="visibleCourses$ | async"></app-course-list>
+  </mat-card>
+</div>
